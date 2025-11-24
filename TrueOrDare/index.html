@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Motivation</title>
+
+  <!-- Basis-Styles (neutral) -->
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <main class="card" role="main">
+    <div class="header">
+      <h1>Wertschätzung & Motivation</h1>
+      <div class="time" id="time" aria-live="polite"></div>
+    </div>
+
+    <!-- Medienbereich (wird automatisch ausgeblendet, wenn kein Bild/Video vorhanden) -->
+    <figure class="hero" id="hero" aria-hidden="true">
+      <div id="heroMedia"></div>
+      <figcaption id="heroCaption" class="hidden"></figcaption>
+    </figure>
+
+    <!-- Zitat/Inhalt -->
+    <section class="content">
+      <blockquote class="quote" id="quote" aria-live="polite"></blockquote>
+      <div class="author" id="author"></div>
+    </section>
+
+    <!-- Siegel / Logo (immer unterhalb des Spruchs, im Flow) -->
+    <div class="seal">
+      <img id="sealImg" src="./assets/siegel.png" alt="Siegel" loading="lazy" decoding="async" />
+    </div>
+
+    <!-- Optionaler Footer: aktuell leer, bewusst ohne Buttons -->
+    <div class="footer"></div>
+  </main>
+
+  <!-- App starten -->
+  <script type="module">
+    import { initApp } from './js/app.js';
+    initApp();
+  </script>
+</body>
+</html>

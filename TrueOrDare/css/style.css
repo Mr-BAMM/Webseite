@@ -1,0 +1,141 @@
+:root{
+  /* Ruhige, wertschätzende Palette */
+  --bg-top:#0f172a;         /* slate-900 */
+  --bg-mid:#111827;         /* near slate-900 */
+  --bg-bot:#1e293b;         /* slate-800 */
+  --card:#0b1220;           /* tiefer, kühler Untergrund */
+  --text:#e5e7eb;           /* zinc-200 */
+  --muted:#94a3b8;          /* slate-400 */
+  --ring:rgba(255,255,255,.16);
+
+  /* sichtbare Höhe (per JS gesetzt, mit Fallbacks) */
+  --vh:1svh;
+  --vhpx:100dvh;
+
+  /* Fit-Variablen – werden bei Bedarf verkleinert */
+  --fs-quote:20px;
+  --fs-author:14px;
+  --fs-h1:18px;
+  --hero-max-h:360px;
+  --hero-min-h:140px;
+
+  /* Siegel unten rechts (Platz und Größe) */
+  --seal-space: 110px;   /* Desktop: freier Platz im Content unten */
+  --seal-w: 160px;       /* Siegelbreite Desktop */
+}
+
+html,body{height:100%}
+html{scrollbar-gutter:stable both-edges}
+
+body{
+  margin:0;
+  display:grid;
+  place-content:start center;
+  min-height:calc(100 * var(--vh));
+  /* Ruhiger Hintergrund: weicher Verlauf statt Vollrot */
+  background:
+    radial-gradient(1200px 800px at 70% 10%, var(--bg-bot) 0%, var(--bg-top) 65%),
+    linear-gradient(180deg, var(--bg-mid), var(--bg-top));
+  color:var(--text);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans";
+  padding-top:max(16px, env(safe-area-inset-top));
+  padding-bottom:max(16px, env(safe-area-inset-bottom));
+  overflow:hidden; /* kein Scrollen – Fit-Logik skaliert Inhalte */
+}
+
+/* Karte */
+.card{
+  width:min(960px,94vw);
+  border-radius:20px; overflow:hidden;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.025)),
+    var(--card);
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.35),
+    inset 0 1px 0 rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.10);
+  backdrop-filter:blur(8px);
+  max-height: calc(var(--vhpx) - max(16px, env(safe-area-inset-top)) - max(16px, env(safe-area-inset-bottom)));
+  position: relative; /* Anker für Siegel */
+}
+
+.header,.footer,.content{padding:18px 12px}
+.header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+h1{
+  font-size:var(--fs-h1); font-weight:700; margin:0;
+  color:#f1c453;            /* sanfter Amber-Akzent */
+  letter-spacing:.2px;
+}
+.time{font-size:12px;color:var(--muted)}
+
+/* MEDIA: Letterboxing – nichts wird beschnitten */
+.hero{margin:0;position:relative;background:#0b1020;min-height:var(--hero-min-h)}
+#heroMedia{display:flex;align-items:center;justify-content:center}
+.hero #heroMedia > *{
+  width:100%; height:auto; display:block;
+  max-height:min(var(--hero-max-h), 38vw);
+  object-fit:contain;
+  background:#0b1020; /* dunkler Rahmen statt Schwarz */
+}
+.hero figcaption{
+  position:absolute; right:10px; bottom:10px; font-size:12px;
+  color:#cbd5e1; opacity:.9; background:rgba(0,0,0,.25);
+  padding:6px 8px; border-radius:10px; backdrop-filter:blur(4px);
+}
+
+/* Text */
+blockquote{margin:0}
+.quote p{
+  margin:0 0 10px 0;
+  font-size:var(--fs-quote);
+  line-height:1.5; letter-spacing:.15px;
+  color:var(--text);
+}
+.quote p:last-child{margin-bottom:0}
+.author{
+  color:#c7d2fe;            /* sanftes Indigo für Wertschätzung */
+  font-size:var(--fs-author);
+  margin-top:12px;
+}
+
+/* Platz für Siegel reservieren */
+.content{ padding-bottom: var(--seal-space); }
+
+/* Buttons (falls vorhanden) – neutral, unaufdringlich */
+.row{display:flex;gap:10px;flex-wrap:wrap}
+button{
+  --alpha:.10; appearance:none; border:1px solid var(--ring); color:var(--text);
+  background: rgba(255,255,255,var(--alpha));
+  padding:10px 14px; border-radius:12px; cursor:pointer; font-weight:600;
+  transition: transform .06s ease, background .2s ease, border-color .2s ease;
+}
+button:hover{--alpha:.15}
+button:active{transform:translateY(1px) scale(.99)}
+.ghost{--alpha:.06}
+.muted{color: var(--muted); font-size:12px; margin-left:auto}
+.hidden{display:none}
+
+/* Siegel unten rechts, absolut in der Karte */
+.seal{
+  position:absolute; right:12px; bottom:12px; z-index:2;
+  pointer-events:none; /* optional auf auto setzen, wenn klickbar */
+}
+.seal img{
+  width: var(--seal-w); height:auto;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,.35));
+  user-select:none; pointer-events:auto;
+}
+
+/* Mobile: dezenter, kompakter */
+@media (max-width:480px){
+  :root{
+    --fs-h1:16px;
+    --fs-quote:18px;
+    --fs-author:13px;
+    --hero-min-h:120px;
+    --hero-max-h:320px;
+    --seal-w: 60px;
+    --seal-space: 40px;
+  }
+  .header,.footer,.content{padding:16px 10px}
+}
