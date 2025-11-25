@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Motivationsspruch</title>
+  <style>
+    :root { --bg:#0f172a; --card:#111827; --text:#e5e7eb; --muted:#9ca3af; }
+    html, body { height:100%; }
+    body {
+      margin:0; display:flex; align-items:center; justify-content:center; min-height:100vh;
+      background: radial-gradient(1200px 800px at 70% 10%, #1f2937 0%, var(--bg) 60%);
+      color: var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+    }
+    .card {
+      width:min(880px, 92vw); padding:28px 28px 22px; border-radius:20px; background:linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(8px);
+    }
+    .header { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+    h1 { font-size:18px; font-weight:600; letter-spacing:.2px; margin:0; color:#cbd5e1; }
+    .time { font-size:12px; color: var(--muted); }
+    blockquote { margin:18px 0 14px; font-size: clamp(22px, 4.2vw, 36px); line-height:1.25; font-weight:650; letter-spacing:.15px; }
+    blockquote::before, blockquote::after { content:"\201C"; color:#94a3b8; margin:0 .2ch; }
+    blockquote::after { content:"\201D"; }
+    .author { color:#a7b0be; font-size:14px; margin: 2px 0 22px; }
+    .row { display:flex; gap:10px; flex-wrap:wrap; }
+    button {
+      --alpha: .12; appearance:none; border:1px solid rgba(255,255,255,.12); color:var(--text);
+      background: rgba(255,255,255,var(--alpha)); padding:10px 14px; border-radius:12px; cursor:pointer; font-weight:600;
+      transition: transform .06s ease, background .2s ease, border-color .2s ease; 
+    }
+    button:hover { --alpha:.18; }
+    button:active { transform: translateY(1px) scale(.99); }
+    .ghost { --alpha:.06; }
+    .muted { color: var(--muted); font-size:12px; margin-left:auto; }
+    .hidden { display:none; }
+    .footer { display:flex; align-items:center; gap:12px; color:#94a3b8; font-size:12px; }
+    a, a:visited { color:#cbd5e1; }
+  </style>
+</head>
+<body>
+  <main class="card" role="main">
+    <div class="header">
+      <h1>Zufalls‑Motivationsspruch</h1>
+      <div class="time" id="time"></div>
+    </div>
+
+    <blockquote id="quote">Lade Spruch…</blockquote>
+    <div class="author" id="author"></div>
+
+    <div class="row">
+      <button id="btn-copy" class="ghost" aria-label="Spruch in die Zwischenablage kopieren">Kopieren</button>
+      <span class="muted" id="status" role="status" aria-live="polite"></span>
+    </div>
+
+  </main>
+
+  <script>
+    // === 1) Deine Sammlung hier pflegen (Text oder "Text — Autor") ===
+const QUOTES = [
+  "Sprich bis zu deinem nächsten Zug mit einem falschen Akzent.",
+  "Lass die Gruppe einen peinlichen Song auswählen und singe 30 Sekunden davon.",
+  "Mach eine möglichst gute Imitation von einem anderen Spieler für eine ganze Minute.",
+  "Schicke ein lustiges Selfie an die letzte Person, der du geschrieben hast, und zeig den Chat.",
+  "Lass einen anderen Spieler deine Haare so umstylen, wie er oder sie will.",
+  "Erzähl von deinem Tag, als wärst du ein dramatischer Filmkommentator.",
+  "Mach 10 Liegestütze – oder deinen besten Versuch.",
+  "Spiele eine Szene aus einem Film nach, bis jemand errät, welcher Film es ist.",
+  "Lass die Person rechts von dir deinen Handy-Hintergrund ändern.",
+  "In der nächsten Runde darfst du nur mit Mimik und Gestik kommunizieren.",
+  "Lies die letzte Nachricht, die du verschickt hast, laut in deiner ernstesten Stimme vor.",
+  "Erlaube einem anderen Spieler, eine kleine Kritzelei auf deine Hand oder deinen Arm zu malen.",
+  "Sprich nur in Fragen bis zu deinem nächsten Zug.",
+  "Lauf einmal quer durch den Raum wie auf einem Catwalk bei einer Modenschau.",
+  "Versuche, innerhalb von 60 Sekunden alle in der Runde zum Lachen zu bringen.",
+  "Lass einen Spieler einen kurzen Status-Text formulieren und lies ihn laut vor, als würdest du ihn posten.",
+  "Balanciere einen beliebigen Gegenstand auf deinem Kopf und geh drei Schritte, ohne ihn fallen zu lassen.",
+  "Imitiere eine berühmte Person so gut du kannst, bis jemand errät, wer es ist.",
+  "Sprich über dein Lieblingsessen, als wärst du in einem sehr ernsten Vorstellungsgespräch.",
+  "Lass jemand aus der Runde deine Handy-Fotos durchscrollen und ein Bild auswählen, das du im Detail beschreiben musst.",
+  "Versuche, deinen Ellbogen zu lecken – ohne irgendwas zu erklären.",
+  "Tu eine Minute lang so, als wärst du ein Roboter, der ständig hängen bleibt.",
+  "Tausche den Platz mit der Person, die am weitesten von dir weg sitzt, und mach ihr ein ehrliches Kompliment.",
+  "Reagiere bis zu deinem nächsten Zug auf alles in übertriebenem Zeitlupen-Drama.",
+  "Erlaube dem Spieler links von dir, ein Emoji an einen beliebigen Kontakt von deinem Handy zu schicken.",
+  "Beschreibe deine letzte Mahlzeit, als wäre sie ein Fünf-Sterne-Restaurantgericht.",
+  "Lass einen anderen Spieler ein Wort bestimmen, das du zwei Runden lang nicht sagen darfst. Jedes Mal, wenn du es doch sagst, musst du einen albernen Tanz machen.",
+  "Imitiere jemanden, der versucht, sich nachts um 3 heimlich in die eigene Wohnung zu schleichen.",
+  "Halte eine 30-sekündige Motivationsrede über ein komplett zufälliges Thema, das die Gruppe aussucht.",
+  "Lass jemanden drei Dinge im Raum umstellen – du musst erraten, was sich verändert hat.",
+  "Rede eine Minute lang so, als wärst du ein YouTuber mit völlig übertriebenem Produkt-Review.",
+  "Zieh dir deine Socken über die Hände und lass sie dort für die nächsten zwei Runden.",
+  "Erfinde einen neuen Handschlag mit der Person neben dir und zeig ihn der Gruppe.",
+  "Versuche 30 Sekunden lang, drei zufällige kleine Gegenstände zu jonglieren.",
+  "Stell dich in die Mitte des Raumes und mach drei verschiedene Posen, als wärst du auf einem Album-Cover.",
+  "Lass einen anderen Spieler eine Sprachnachricht von deinem Handy verschicken, in der nur nette Dinge gesagt werden.",
+  "Kommentiere eine Minute lang alles, was die Person rechts von dir macht, als wärst du ein Sportkommentator.",
+  "Imitiere möglichst gut einen Lehrer oder Chef, den du mal hattest (ohne Namen zu nennen).",
+  "Schließe die Augen, lass dir einen Gegenstand in die Hand geben und errate, was es ist – nur durch Tasten.",
+  "Tu 45 Sekunden lang so, als hättest du extrem langsames Internet und alles hängt.",
+  "Pfeife ein Lied, das die Gruppe aussucht, bis es jemand erkennt.",
+  "Lass die Person dir gegenüber ein Wort auf deine Stirn (oder einen Zettel) schreiben und behalte es drei Runden lang dort.",
+  "Lies eine zufällige SMS von deinem Handy übertrieben dramatisch vor.",
+  "Tu so, als würdest du einen ernsten TED-Talk über etwas völlig Nutzloses halten.",
+  "Steh 30 Sekunden lang wie eine Statue, während alle anderen versuchen, dich zum Lachen zu bringen.",
+  "Sag jedem in diesem Raum ein ehrliches, nettes Kompliment.",
+  "Tu eine Minute lang so, als wäre der Boden Lava, und verhältst dich entsprechend.",
+  "Lass jemanden deine Gesichtsmimik mit seinen Händen „steuern“, während du versuchst, eine kurze Geschichte zu erzählen.",
+  "Such dir einen zufälligen Gegenstand im Raum und versuche, ihn der Gruppe wie in einer Teleshopping-Show zu verkaufen.",
+  "Erfinde einen kurzen Jingle über dieses Spiel und performe ihn für die Gruppe."
+];
+
+
+    // === 2) Keine Wiederholungen bis alle durch sind – Shuffle‑Beutel in localStorage ===
+    const STORAGE_KEY = 'motivate.shuffleBag.v1';
+
+    function getShuffleBag(size) {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) {
+        try {
+          const obj = JSON.parse(raw);
+          if (Array.isArray(obj.bag) && typeof obj.i === 'number' && obj.size === size) return obj;
+        } catch {}
+      }
+      // Neu erzeugen: 0..size-1 mischen (Fisher‑Yates)
+      const bag = Array.from({length: size}, (_, i) => i);
+      for (let i = bag.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [bag[i], bag[j]] = [bag[j], bag[i]];
+      }
+      const obj = { bag, i: 0, size };
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(obj));
+      return obj;
+    }
+
+    function drawIndex(size) {
+      let state = getShuffleBag(size);
+      if (state.i >= state.bag.length) {
+        // Alles gezeigt → neu mischen
+        localStorage.removeItem(STORAGE_KEY);
+        state = getShuffleBag(size);
+      }
+      const idx = state.bag[state.i++];
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      return idx;
+    }
+
+    // === 3) Rendering ===
+    function splitQuote(q) {
+      // Trenne bei — oder - oder \u2014; rechts davon als Autor, wenn sinnvoll
+      const dash = /(\s[\u2014\u2013\-]\s)|\s—\s/;
+      const parts = q.split(dash);
+      if (parts.length >= 3) {
+        const text = (parts[0] || '').trim();
+        const author = (q.slice(text.length).replace(/^\s[\u2014\u2013\-]\s/, '')).trim();
+        return { text, author };
+      }
+      return { text: q, author: '' };
+    }
+
+    function renderRandomQuote() {
+      if (!QUOTES.length) return;
+      const i = drawIndex(QUOTES.length);
+      const { text, author } = splitQuote(QUOTES[i]);
+      document.getElementById('quote').textContent = text;
+      const a = document.getElementById('author');
+      a.textContent = author ? '— ' + author : '';
+    }
+
+    // === 4) UX: Kopieren, Zeitstempel, Button ===
+    async function copyQuote() {
+      const text = document.getElementById('quote').textContent;
+      const author = document.getElementById('author').textContent;
+      const clip = author ? `${text} ${author}` : text;
+      try {
+        await navigator.clipboard.writeText(clip);
+        setStatus('Kopiert.');
+      } catch {
+        setStatus('Konnte nicht kopieren.');
+      }
+    }
+
+    function setStatus(msg) {
+      const s = document.getElementById('status');
+      s.textContent = msg;
+      clearTimeout(setStatus._t);
+      setStatus._t = setTimeout(() => s.textContent = '', 1800);
+    }
+
+    function setTime() {
+      const now = new Date();
+      const opts = { hour: '2-digit', minute: '2-digit' };
+      document.getElementById('time').textContent = now.toLocaleTimeString(undefined, opts);
+    }
+
+    // Init
+    document.getElementById('btn-copy').addEventListener('click', copyQuote);
+    setTime();
+    setInterval(setTime, 30_000);
+    renderRandomQuote();
+  </script>
+</body>
+</html>

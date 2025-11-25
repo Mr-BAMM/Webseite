@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Motivationsspruch</title>
+  <style>
+    :root { --bg:#0f172a; --card:#111827; --text:#e5e7eb; --muted:#9ca3af; }
+    html, body { height:100%; }
+    body {
+      margin:0; display:flex; align-items:center; justify-content:center; min-height:100vh;
+      background: radial-gradient(1200px 800px at 70% 10%, #1f2937 0%, var(--bg) 60%);
+      color: var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+    }
+    .card {
+      width:min(880px, 92vw); padding:28px 28px 22px; border-radius:20px; background:linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(8px);
+    }
+    .header { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+    h1 { font-size:18px; font-weight:600; letter-spacing:.2px; margin:0; color:#cbd5e1; }
+    .time { font-size:12px; color: var(--muted); }
+    blockquote { margin:18px 0 14px; font-size: clamp(22px, 4.2vw, 36px); line-height:1.25; font-weight:650; letter-spacing:.15px; }
+    blockquote::before, blockquote::after { content:"\201C"; color:#94a3b8; margin:0 .2ch; }
+    blockquote::after { content:"\201D"; }
+    .author { color:#a7b0be; font-size:14px; margin: 2px 0 22px; }
+    .row { display:flex; gap:10px; flex-wrap:wrap; }
+    button {
+      --alpha: .12; appearance:none; border:1px solid rgba(255,255,255,.12); color:var(--text);
+      background: rgba(255,255,255,var(--alpha)); padding:10px 14px; border-radius:12px; cursor:pointer; font-weight:600;
+      transition: transform .06s ease, background .2s ease, border-color .2s ease; 
+    }
+    button:hover { --alpha:.18; }
+    button:active { transform: translateY(1px) scale(.99); }
+    .ghost { --alpha:.06; }
+    .muted { color: var(--muted); font-size:12px; margin-left:auto; }
+    .hidden { display:none; }
+    .footer { display:flex; align-items:center; gap:12px; color:#94a3b8; font-size:12px; }
+    a, a:visited { color:#cbd5e1; }
+  </style>
+</head>
+<body>
+  <main class="card" role="main">
+    <div class="header">
+      <h1>Zufalls‑Motivationsspruch</h1>
+      <div class="time" id="time"></div>
+    </div>
+
+    <blockquote id="quote">Lade Spruch…</blockquote>
+    <div class="author" id="author"></div>
+
+    <div class="row">
+      <button id="btn-copy" class="ghost" aria-label="Spruch in die Zwischenablage kopieren">Kopieren</button>
+      <span class="muted" id="status" role="status" aria-live="polite"></span>
+    </div>
+
+  </main>
+
+  <script>
+    // === 1) Deine Sammlung hier pflegen (Text oder "Text — Autor") ===
+const QUOTES = [
+  "Mach's einfach. Einfach machen. Du weißt selber wie gut es sich anfühlt, wenn du es geschaft hasst",
+  "Der beste Zeitpunkt war gestern. Der zweitbeste ist jetzt.",
+  "Mit deinem Fokus und deiner Disziplin kann dich nichts aufhalten!",
+  "Schritt für Schritt wird aus später nie. Lass das nicht zu und werde Aktiv! Und zwar Jetzt!",
+  "Du kannst nicht konkrolieren was geschehen ist. Du kannst nur bedingt kontrollieren was geschehen wird. Alles was du kontrollieren kannst ist wie du jetzt Handelst!",
+  "Wenn es wichtig ist, findest du einen Weg. Wenn nicht, eine Ausrede.",
+  "Bewunderswert ist nicht der der immer Alles richtig macht, sondern der der es auch dann tut wenn es hart ist!",
+  "Done ist besser als perfekt.",
+  "Jeden Tag 1% besser.",
+  "Machen ist wie wollen, nur krasser.",
+
+  // --- Neue Reflektions-/Motivationssprüche ---
+  "Z-Zone: Jeden Tag eine Stunde mehr. Du schenkst den Leuten Lebenszeit und Qualität!",
+  "Ein Business zu starten ist nicht einfach! Aber du findest einen Weg, powerst dich durch die Startphase und machst es groß!",
+  "Nicht ausgeschlafen? Das Problem kenne ich, aber ich kenn auch jemanden der das Problem bald löst ;)",
+  "Business voranbringen + regelmäßig Trainieren gehen! Ich find es immer bewundernswert, wie du beides so gut hinbekommst!",
+  " Ich finde es Hammer wie du dir Stück für Stück dein Z-Zone Team aufbaust! Go Team Z-Zone!",
+  "Reflektion Challenge: Was ist die aktuell größte Marktvalidierungsfrage? Und was kann ich heute tun um diesbezüglich mehr Klarheit zu bekommen?",
+  "Reflektion Challenge: Gibt es aktuell eine Problemstellung, wo ich mir unsicher bin? Und kenne ich jemanden der sich damit auskennt / weiß ich einen Weg wie ich mehr Klarheit bekomme?",
+  "Reflektion Challenge: Wer könnte ein weiterer guter Partner für mein Projekt sein? Und wie komm ich an ihn ran?",
+  "Reflektion Challenge: Was ist der Schritt der mich heute am meisten voranbringt?",
+  "Reflektion Challenge: Habe ich gestern effektiv gearbeitet und was kann ich heute tun um noch heute effektiver zu arbeiten?",
+  "Reflektion Challenge: Was war mein letzter großer Erfolg? Und habe ich ihn auch gefeiert?",
+];
+
+    // === 2) Keine Wiederholungen bis alle durch sind – Shuffle‑Beutel in localStorage ===
+    const STORAGE_KEY = 'motivate.shuffleBag.v1';
+
+    function getShuffleBag(size) {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) {
+        try {
+          const obj = JSON.parse(raw);
+          if (Array.isArray(obj.bag) && typeof obj.i === 'number' && obj.size === size) return obj;
+        } catch {}
+      }
+      // Neu erzeugen: 0..size-1 mischen (Fisher‑Yates)
+      const bag = Array.from({length: size}, (_, i) => i);
+      for (let i = bag.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [bag[i], bag[j]] = [bag[j], bag[i]];
+      }
+      const obj = { bag, i: 0, size };
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(obj));
+      return obj;
+    }
+
+    function drawIndex(size) {
+      let state = getShuffleBag(size);
+      if (state.i >= state.bag.length) {
+        // Alles gezeigt → neu mischen
+        localStorage.removeItem(STORAGE_KEY);
+        state = getShuffleBag(size);
+      }
+      const idx = state.bag[state.i++];
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      return idx;
+    }
+
+    // === 3) Rendering ===
+    function splitQuote(q) {
+      // Trenne bei — oder - oder \u2014; rechts davon als Autor, wenn sinnvoll
+      const dash = /(\s[\u2014\u2013\-]\s)|\s—\s/;
+      const parts = q.split(dash);
+      if (parts.length >= 3) {
+        const text = (parts[0] || '').trim();
+        const author = (q.slice(text.length).replace(/^\s[\u2014\u2013\-]\s/, '')).trim();
+        return { text, author };
+      }
+      return { text: q, author: '' };
+    }
+
+    function renderRandomQuote() {
+      if (!QUOTES.length) return;
+      const i = drawIndex(QUOTES.length);
+      const { text, author } = splitQuote(QUOTES[i]);
+      document.getElementById('quote').textContent = text;
+      const a = document.getElementById('author');
+      a.textContent = author ? '— ' + author : '';
+    }
+
+    // === 4) UX: Kopieren, Zeitstempel, Button ===
+    async function copyQuote() {
+      const text = document.getElementById('quote').textContent;
+      const author = document.getElementById('author').textContent;
+      const clip = author ? `${text} ${author}` : text;
+      try {
+        await navigator.clipboard.writeText(clip);
+        setStatus('Kopiert.');
+      } catch {
+        setStatus('Konnte nicht kopieren.');
+      }
+    }
+
+    function setStatus(msg) {
+      const s = document.getElementById('status');
+      s.textContent = msg;
+      clearTimeout(setStatus._t);
+      setStatus._t = setTimeout(() => s.textContent = '', 1800);
+    }
+
+    function setTime() {
+      const now = new Date();
+      const opts = { hour: '2-digit', minute: '2-digit' };
+      document.getElementById('time').textContent = now.toLocaleTimeString(undefined, opts);
+    }
+
+    // Init
+    document.getElementById('btn-copy').addEventListener('click', copyQuote);
+    setTime();
+    setInterval(setTime, 30_000);
+    renderRandomQuote();
+  </script>
+</body>
+</html>
