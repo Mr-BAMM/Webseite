@@ -1,9 +1,54 @@
 {
   "items": [
-    {
-    "text": [
-      "Default"
-    ]
-  }
-]
-}
+    { "text": ["Speak in a fake accent until your next turn."] },
+    { "text": ["Let the group choose an embarrassing song and sing 30 seconds of it."] },
+    { "text": ["Do your best impression of another player for one full minute."] },
+    { "text": ["Send a funny selfie to the last person you texted and show the chat."] },
+    { "text": ["Let another player rearrange your hair however they want."] },
+    { "text": ["Talk about your day as if you were a dramatic movie narrator."] },
+    { "text": ["Do 10 push-ups or your best attempt at them."] },
+    { "text": ["Act out a scene from a movie until someone guesses which one."] },
+    { "text": ["Let the person on your right change your phone wallpaper."] },
+    { "text": ["For the next round, you can only communicate with facial expressions and gestures."] },
+    { "text": ["Read the last message you sent out loud in your most serious voice."] },
+    { "text": ["Allow another player to draw a small doodle on your hand or arm."] },
+    { "text": ["Speak only in questions until your next turn."] },
+    { "text": ["Do a runway walk across the room as if you were on a fashion show."] },
+    { "text": ["Try to make everyone in the group laugh in 60 seconds."] },
+    { "text": ["Let another player write a short status message and you have to read it out loud as if posting it."] },
+    { "text": ["Balance an object on your head and walk three steps without dropping it."] },
+    { "text": ["Do your best imitation of a famous celebrity until someone guesses who it is."] },
+    { "text": ["Talk about your favorite food as if you were in a serious job interview."] },
+    { "text": ["Let someone else in the group go through your phone photos and pick one for you to describe in detail."] },
+    { "text": ["Try to lick your elbow and don’t explain yourself."] },
+    { "text": ["Pretend you are a robot that keeps glitching for one minute."] },
+    { "text": ["Swap seats with the person farthest away from you and compliment them on something."] },
+    { "text": ["Do a dramatic slow-motion reaction to everything that happens until your next turn."] },
+    { "text": ["Allow the player on your left to send one emoji to any contact on your phone."] },
+    { "text": ["Describe your last meal as if it were a five-star restaurant review."] },
+    { "text": ["Let another player choose a word you are not allowed to say for two rounds. Every time you say it, you have to do a silly dance."] },
+    { "text": ["Do your best impression of someone trying to sneak into their own house at 3 a.m."] },
+    { "text": ["Give a 30-second motivational speech about something completely random chosen by the group."] },
+    { "text": ["Let someone rearrange three items in the room and you have to guess what changed."] },
+    { "text": ["Talk for one minute as if you were a YouTuber doing an overexcited product review."] },
+    { "text": ["Put your socks on your hands and leave them there for the next two rounds."] },
+    { "text": ["Invent a new handshake with the person next to you and demonstrate it to the group."] },
+    { "text": ["Try to juggle three random small objects for 30 seconds."] },
+    { "text": ["Stand in the middle of the room and strike three different “album cover” poses."] },
+    { "text": ["Let another player send a voice note from your phone saying only nice things."] },
+    { "text": ["Narrate everything the person on your right does for the next minute like a sports commentator."] },
+    { "text": ["Do your best impression of a teacher or boss you’ve had (without naming them)."] },
+    { "text": ["Close your eyes and let someone hand you an object. You have to guess what it is only by touch."] },
+    { "text": ["Act as if you were stuck in slow internet lag for 45 seconds."] },
+    { "text": ["Try to whistle a song chosen by the group until someone recognizes it."] },
+    { "text": ["Let the person across from you write one word on your forehead (or a sticky note) and keep it there for three rounds."] },
+    { "text": ["Do an overly dramatic reading of a random text message from your phone."] },
+    { "text": ["Pretend you are giving a serious TED talk about something completely useless."] },
+    { "text": ["Stand like a statue while everyone tries to make you laugh for 30 seconds."] },
+    { "text": ["Tell a sincere compliment to every person in the room."] },
+    { "text": ["Pretend that the floor is lava for the next minute and act accordingly."] },
+    { "text": ["Let someone else control your facial expression with their hands while you try to tell a short story."] },
+    { "text": ["Choose a random object in the room and try to sell it to the group like an infomercial host."] },
+    { "text": ["Create a short jingle about this game and perform it for the group."] }
+  ]
+} 
