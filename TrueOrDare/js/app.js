@@ -24,10 +24,10 @@ async function loadJSON(path) {
 async function loadItemsForSite() {
   const site = getParam('site', 'default'); // z.B. ?site=care
   try {
-    const data = await loadJSON(`./data/${site}.items.json`);
+    const data = await loadJSON(`./data/${site}_items.json`);
     return Array.isArray(data) ? data : (Array.isArray(data.items) ? data.items : []);
   } catch {
-    const data = await loadJSON(`./data/default.items.json`);
+    const data = await loadJSON(`./data/default_items.json`);
     return Array.isArray(data) ? data : (Array.isArray(data.items) ? data.items : []);
   }
 }
@@ -46,7 +46,7 @@ function applySealForSite() {
   const seal = document.getElementById('sealImg');
   if (!seal) return;
   // Wenn vorhanden, verwende assets/<site>/siegel.png, sonst fallback bleibt
-  const candidate = `./assets/${site}/siegel.png`;
+  const candidate = `./assets/siegel.png`;
   // Wir testen existenz "leicht" via Image-Probe (ohne die App zu blockieren)
   const probe = new Image();
   probe.onload = () => { seal.src = candidate; };
