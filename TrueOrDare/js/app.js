@@ -22,15 +22,43 @@ async function loadJSON(path) {
 }
 
 async function loadItemsForSite() {
-  const site = getParam('site', 'default'); // z.B. ?site=care
-  try {
-    const data = await loadJSON(`./data/${site}_items.json`);
-    return Array.isArray(data) ? data : (Array.isArray(data.items) ? data.items : []);
-  } catch {
-    const data = await loadJSON(`./data/default_items.json`);
-    return Array.isArray(data) ? data : (Array.isArray(data.items) ? data.items : []);
+  const raw = getParam('site', 'default');
+  // nur sichere Zeichen zulassen
+  const clean = (raw || 'default').replace(/[^a-z0-9_\-]/gi, '');
+  // Varianten für Case
+  const lower = clean.toLowerCase();
+  const upperFirst = clean.charAt(0).toUpperCase() + clean.slice(1);
+
+  const candidates = [
+    `./data/${clean}_items.json`,
+    `./data/${clean}.items.json`,
+    `./data/${lower}_items.json`,
+    `./data/${lower}.items.json`,
+    `./data/${upperFirst}_items.json`,
+    `./data/${upperFirst}.items.json`,
+    `./data/default_items.json`,
+    `./data/default.items.json`,
+  ];
+
+  for (const path of candidates) {
+    try {
+      const res = await fetch(path, { cache: 'no-store' });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      console.log('[items] geladen aus:', path);
+      return Array.isArray(data) ? data : (Array.isArray(data.items) ? data.items : []);
+    } catch (e) {
+      console.warn('[items] nicht gefunden:', path, e.message || e);
+    }
   }
+
+  console.error('[items] kein Kandidat gefunden – verwende Inline-Fallback');
+  return [{
+    text: ["Keine Daten gefunden. Bitte items.json für diese Site anlegen."],
+    author: "System"
+  }];
 }
+
 
 function applyThemeForSite() {
   const theme = getParam('theme', ''); // z.B. ?theme=care -> ./css/theme-care.css
