@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Motivationsspruch</title>
+  <title>Truth</title>
   <style>
     :root { --bg:#0f172a; --card:#111827; --text:#e5e7eb; --muted:#9ca3af; }
     html, body { height:100%; }
@@ -60,30 +60,58 @@
   <script>
     // === 1) Deine Sammlung hier pflegen (Text oder "Text — Autor") ===
 const QUOTES = [
-  "Mach's einfach. Einfach machen. Du weißt selber wie gut es sich anfühlt, wenn du es geschaft hasst",
-  "Der beste Zeitpunkt war gestern. Der zweitbeste ist jetzt.",
-  "Mit deinem Fokus und deiner Disziplin kann dich nichts aufhalten!",
-  "Schritt für Schritt wird aus später nie. Lass das nicht zu und werde Aktiv! Und zwar Jetzt!",
-  "Du kannst nicht konkrolieren was geschehen ist. Du kannst nur bedingt kontrollieren was geschehen wird. Alles was du kontrollieren kannst ist wie du jetzt Handelst!",
-  "Wenn es wichtig ist, findest du einen Weg. Wenn nicht, eine Ausrede.",
-  "Bewunderswert ist nicht der der immer Alles richtig macht, sondern der der es auch dann tut wenn es hart ist!",
-  "Done ist besser als perfekt.",
-  "Jeden Tag 1% besser.",
-  "Machen ist wie wollen, nur krasser.",
-
-  // --- Neue Reflektions-/Motivationssprüche ---
-  "Z-Zone: Jeden Tag eine Stunde mehr. Du schenkst den Leuten Lebenszeit und Qualität!",
-  "Ein Business zu starten ist nicht einfach! Aber du findest einen Weg, powerst dich durch die Startphase und machst es groß!",
-  "Nicht ausgeschlafen? Das Problem kenne ich, aber ich kenn auch jemanden der das Problem bald löst ;)",
-  "Business voranbringen + regelmäßig Trainieren gehen! Ich find es immer bewundernswert, wie du beides so gut hinbekommst!",
-  " Ich finde es Hammer wie du dir Stück für Stück dein Z-Zone Team aufbaust! Go Team Z-Zone!",
-  "Reflektion Challenge: Was ist die aktuell größte Marktvalidierungsfrage? Und was kann ich heute tun um diesbezüglich mehr Klarheit zu bekommen?",
-  "Reflektion Challenge: Gibt es aktuell eine Problemstellung, wo ich mir unsicher bin? Und kenne ich jemanden der sich damit auskennt / weiß ich einen Weg wie ich mehr Klarheit bekomme?",
-  "Reflektion Challenge: Wer könnte ein weiterer guter Partner für mein Projekt sein? Und wie komm ich an ihn ran?",
-  "Reflektion Challenge: Was ist der Schritt der mich heute am meisten voranbringt?",
-  "Reflektion Challenge: Habe ich gestern effektiv gearbeitet und was kann ich heute tun um noch heute effektiver zu arbeiten?",
-  "Reflektion Challenge: Was war mein letzter großer Erfolg? Und habe ich ihn auch gefeiert?",
+  "Was war dein erster Eindruck von mir?",
+  "Was ist das peinlichste, das dir jemals in der Öffentlichkeit passiert ist?",
+  "Welches Geheimnis hier im Raum hast du noch niemandem erzählt?",
+  "Wer war dein größter Crush in den letzten 5 Jahren?",
+  "Was tust du so, als würdest du es mögen, magst es aber eigentlich nicht?",
+  "Was ist deine irrationalste Angst?",
+  "Was war dein schlimmstes Date ever – und warum?",
+  "Was ist die größte Lüge, die du erzählt hast, ohne erwischt zu werden?",
+  "Wenn du eine Sache aus deiner Vergangenheit ändern könntest, welche wäre das?",
+  "Worauf bist du stolz, worüber du aber selten sprichst?",
+  "Was ist das Seltsamste, das du getan hast, als du dachtest, dich beobachtet niemand?",
+  "Warst du schon mal in den Partner oder Ex eines Freundes oder einer Freundin verknallt?",
+  "Welche deiner Meinungen ist am kontroversesten, an der du aber trotzdem festhältst?",
+  "Was ist das kindischste, das du immer noch gerne machst?",
+  "Was war das größte Risiko, das du je eingegangen bist?",
+  "Welche Angewohnheit würdest du wirklich gerne loswerden, hast es aber noch nicht geschafft?",
+  "Was war deine schlimmste Modephase?",
+  "Wann hast du das letzte Mal geweint – und warum?",
+  "Was ist etwas, worüber du unsicher bist, was man dir aber wahrscheinlich nicht ansieht?",
+  "In welchen größten Ärger bist du in der Schule oder an der Uni geraten?",
+  "Was ist das Merkwürdigste, das du jemals mit Absicht gegessen hast?",
+  "Was war das Letzte, das du in deinem Handy-Browser gesucht hast?",
+  "Wen aus dieser Runde würdest du als erstes im Notfall anrufen – und warum?",
+  "Auf welches Ziel hast du heimlich aufgegeben?",
+  "Was ist das Faulste, das du in letzter Zeit gemacht hast?",
+  "Welches Kompliment hast du bekommen, das du nie vergessen wirst?",
+  "Über was bist du froh, dass deine Eltern es nicht über dich wissen?",
+  "Was war die unangenehmste Situation mit jemandem, in den du verknallt warst?",
+  "Was hast du einmal gemacht und sofort bereut?",
+  "Wenn du dir eine Person hier aussuchen müsstest, mit der du auf einer einsamen Insel gestrandet bist – wer wäre es?",
+  "Was ist dein peinlichstes Guilty Pleasure, wenn du alleine bist?",
+  "Was war die schlimmste Nachricht, die du jemals an die falsche Person geschickt hast?",
+  "Hast du je gelogen, nur um ein Treffen mit jemandem hier zu vermeiden?",
+  "Welche Freundschaft hättest du rückblickend gerne anders gehandhabt?",
+  "Was hast du schon nur aus Gruppenzwang gemacht?",
+  "Was ist im Moment das peinlichste Objekt in deinem Zimmer?",
+  "Was ist eine Sache, von der du Angst hast, dass die Leute hier im Raum sie heimlich über dich denken?",
+  "Was war dein impulsivster Kauf überhaupt?",
+  "Wer hier kennt dich deiner Meinung nach am besten – und warum?",
+  "Welche Lüge hast du auf Social Media erzählt, damit du besser rüberkommst?",
+  "Wann warst du in deinem Leben am eifersüchtigsten?",
+  "Was würdest du gerne besser können, übst es aber nie?",
+  "Was ist der seltsamste Traum, an den du dich noch im Detail erinnerst?",
+  "Wenn du eine Erinnerung aus deinem Kopf löschen könntest – welche wäre das?",
+  "Was ist der kleinlichste Grund, aus dem du jemanden mal nicht mochtest?",
+  "Was hast du getan, von dem dein Chef oder Lehrer auf keinen Fall erfahren sollte?",
+  "Wie lange bist du schon mal ohne Duschen ausgekommen – und warum?",
+  "Welche kleine Entscheidung hat dein Leben überraschend stark verändert?",
+  "Wenn du einen großen Fehler aus dem letzten Jahr zugeben müsstest – welcher wäre das?",
+  "Was ist etwas, das du dir vom Leben wirklich wünschst, dich aber kaum traust, laut auszusprechen?"
 ];
+
 
     // === 2) Keine Wiederholungen bis alle durch sind – Shuffle‑Beutel in localStorage ===
     const STORAGE_KEY = 'motivate.shuffleBag.v1';
