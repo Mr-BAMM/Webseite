@@ -51,6 +51,7 @@
     <div class="author" id="author"></div>
 
     <div class="row">
+      <button id="btn-new" type="button" aria-label="Neue Aufgabe laden">Neue Aufgabe</button>
       <button id="btn-copy" class="ghost" aria-label="Spruch in die Zwischenablage kopieren">Kopieren</button>
       <span class="muted" id="status" role="status" aria-live="polite"></span>
     </div>
@@ -60,12 +61,12 @@
   <script>
     // === 1) Deine Sammlung hier pflegen (Text oder "Text — Autor") ===
 const QUOTES = [
-  "Was war dein erster Eindruck von mir?",
+  "Was war dein erster Eindruck von der Person rechts von dir?",
   "Was ist das peinlichste, das dir jemals in der Öffentlichkeit passiert ist?",
-  "Welches Geheimnis hier im Raum hast du noch niemandem erzählt?",
+  "Welches Geheimnis hast du noch niemandem hier im Raum erzählt?",
   "Wer war dein größter Crush in den letzten 5 Jahren?",
-  "Was tust du so, als würdest du es mögen, magst es aber eigentlich nicht?",
-  "Was ist deine irrationalste Angst?",
+  "Bei was tust du so, als würdest du es mögen, magst es aber eigentlich nicht?",
+  "Was ist eine irrationalste Angst, die du hast?",
   "Was war dein schlimmstes Date ever – und warum?",
   "Was ist die größte Lüge, die du erzählt hast, ohne erwischt zu werden?",
   "Wenn du eine Sache aus deiner Vergangenheit ändern könntest, welche wäre das?",
@@ -83,7 +84,7 @@ const QUOTES = [
   "Was ist das Merkwürdigste, das du jemals mit Absicht gegessen hast?",
   "Was war das Letzte, das du in deinem Handy-Browser gesucht hast?",
   "Wen aus dieser Runde würdest du als erstes im Notfall anrufen – und warum?",
-  "Auf welches Ziel hast du heimlich aufgegeben?",
+  "Welches Ziel hast du heimlich aufgegeben? Und was müsste sich ändern, damit du es wieder verfolgst?",
   "Was ist das Faulste, das du in letzter Zeit gemacht hast?",
   "Welches Kompliment hast du bekommen, das du nie vergessen wirst?",
   "Über was bist du froh, dass deine Eltern es nicht über dich wissen?",
@@ -94,7 +95,7 @@ const QUOTES = [
   "Was war die schlimmste Nachricht, die du jemals an die falsche Person geschickt hast?",
   "Hast du je gelogen, nur um ein Treffen mit jemandem hier zu vermeiden?",
   "Welche Freundschaft hättest du rückblickend gerne anders gehandhabt?",
-  "Was hast du schon nur aus Gruppenzwang gemacht?",
+  "Was hast du bisher immer nur aus Gruppenzwang gemacht?",
   "Was ist im Moment das peinlichste Objekt in deinem Zimmer?",
   "Was ist eine Sache, von der du Angst hast, dass die Leute hier im Raum sie heimlich über dich denken?",
   "Was war dein impulsivster Kauf überhaupt?",
@@ -109,7 +110,13 @@ const QUOTES = [
   "Wie lange bist du schon mal ohne Duschen ausgekommen – und warum?",
   "Welche kleine Entscheidung hat dein Leben überraschend stark verändert?",
   "Wenn du einen großen Fehler aus dem letzten Jahr zugeben müsstest – welcher wäre das?",
-  "Was ist etwas, das du dir vom Leben wirklich wünschst, dich aber kaum traust, laut auszusprechen?"
+  "Was ist etwas, das du dir vom Leben wirklich wünschst, dich aber kaum traust, laut auszusprechen?",
+  "Wenn du Psychologie wärst, wie würdest du dich selbst diagnostizieren?",
+  "Hattest du schon mal unsanständige Gedanken über jemanden hier im Raum?",
+  "Was ist das Dümmste, das du je aus Liebe oder einem Crush getan hast?",
+  "Was ist das Erlebniss, wass dich in deinen Leben am meisten geprägt hat?",
+  "Hast du aktuell einen Crush auf jemanden, mit dem du aktuell nicht zusammen bist?",
+  "Was war die heißeste Fantasie, die du in letzer Zeit hattest? und mit wem?",
 ];
 
 
@@ -197,6 +204,10 @@ const QUOTES = [
 
     // Init
     document.getElementById('btn-copy').addEventListener('click', copyQuote);
+    document.getElementById('btn-new').addEventListener('click', () => {
+      renderRandomQuote();
+      setStatus('Neue Aufgabe geladen.');
+    });
     setTime();
     setInterval(setTime, 30_000);
     renderRandomQuote();
