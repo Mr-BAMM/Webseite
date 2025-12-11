@@ -51,7 +51,8 @@
     <div class="author" id="author"></div>
 
     <div class="row">
-      <button id="btn-copy" class="ghost" aria-label="Spruch in die Zwischenablage kopieren">Kopieren</button>
+      <button id="btn-new" type="button" aria-label="Neue Aufgabe laden">Neue Aufgabe</button>
+      <button id="btn-copy" class="ghost" aria-label="Kopieren">Kopieren</button>
       <span class="muted" id="status" role="status" aria-live="polite"></span>
     </div>
 
@@ -60,56 +61,57 @@
   <script>
     // === 1) Deine Sammlung hier pflegen (Text oder "Text — Autor") ===
 const QUOTES = [
-  "Sprich bis zu deinem nächsten Zug mit einem falschen Akzent.",
+  "Sprich einen Minute lang mit einem falschen Akzent.",
   "Lass die Gruppe einen peinlichen Song auswählen und singe 30 Sekunden davon.",
-  "Mach eine möglichst gute Imitation von einem anderen Spieler für eine ganze Minute.",
+  "Mach eine möglichst gute Imitation von einem anderen Mitspielers für eine Minute.",
   "Schicke ein lustiges Selfie an die letzte Person, der du geschrieben hast, und zeig den Chat.",
   "Lass einen anderen Spieler deine Haare so umstylen, wie er oder sie will.",
   "Erzähl von deinem Tag, als wärst du ein dramatischer Filmkommentator.",
   "Mach 10 Liegestütze – oder deinen besten Versuch.",
   "Spiele eine Szene aus einem Film nach, bis jemand errät, welcher Film es ist.",
-  "Lass die Person rechts von dir deinen Handy-Hintergrund ändern.",
-  "In der nächsten Runde darfst du nur mit Mimik und Gestik kommunizieren.",
+  "Kommuniziere einen Minute lang nur mit Mimik und Gestik.",
   "Lies die letzte Nachricht, die du verschickt hast, laut in deiner ernstesten Stimme vor.",
-  "Erlaube einem anderen Spieler, eine kleine Kritzelei auf deine Hand oder deinen Arm zu malen.",
+  "Erlaube einem anderen Spieler, eine kleine Kritzelei auf deinen Arm zu malen.",
   "Sprich nur in Fragen bis zu deinem nächsten Zug.",
   "Lauf einmal quer durch den Raum wie auf einem Catwalk bei einer Modenschau.",
   "Versuche, innerhalb von 60 Sekunden alle in der Runde zum Lachen zu bringen.",
-  "Lass einen Spieler einen kurzen Status-Text formulieren und lies ihn laut vor, als würdest du ihn posten.",
   "Balanciere einen beliebigen Gegenstand auf deinem Kopf und geh drei Schritte, ohne ihn fallen zu lassen.",
   "Imitiere eine berühmte Person so gut du kannst, bis jemand errät, wer es ist.",
   "Sprich über dein Lieblingsessen, als wärst du in einem sehr ernsten Vorstellungsgespräch.",
   "Lass jemand aus der Runde deine Handy-Fotos durchscrollen und ein Bild auswählen, das du im Detail beschreiben musst.",
   "Versuche, deinen Ellbogen zu lecken – ohne irgendwas zu erklären.",
+  "Tue so als wärest du und die Person rechts von dir ein Paar", 
   "Tu eine Minute lang so, als wärst du ein Roboter, der ständig hängen bleibt.",
-  "Tausche den Platz mit der Person, die am weitesten von dir weg sitzt, und mach ihr ein ehrliches Kompliment.",
+  "Tausche den Platz mit der Person, die am weitesten von dir weg ist, und mach ihr ein ehrliches Kompliment.",
   "Reagiere bis zu deinem nächsten Zug auf alles in übertriebenem Zeitlupen-Drama.",
   "Erlaube dem Spieler links von dir, ein Emoji an einen beliebigen Kontakt von deinem Handy zu schicken.",
   "Beschreibe deine letzte Mahlzeit, als wäre sie ein Fünf-Sterne-Restaurantgericht.",
-  "Lass einen anderen Spieler ein Wort bestimmen, das du zwei Runden lang nicht sagen darfst. Jedes Mal, wenn du es doch sagst, musst du einen albernen Tanz machen.",
-  "Imitiere jemanden, der versucht, sich nachts um 3 heimlich in die eigene Wohnung zu schleichen.",
+  "Lass einen anderen Spieler ein Wort bestimmen, das du den Restlichen Abend nicht sagen darfst. Jedes Mal, wenn du es doch sagst, musst du einen albernen Tanz machen.",
+  "Tu für den Rest des Abends so als wärst du ein Geheimagent auf einer geheimen Mission.",
   "Halte eine 30-sekündige Motivationsrede über ein komplett zufälliges Thema, das die Gruppe aussucht.",
-  "Lass jemanden drei Dinge im Raum umstellen – du musst erraten, was sich verändert hat.",
   "Rede eine Minute lang so, als wärst du ein YouTuber mit völlig übertriebenem Produkt-Review.",
-  "Zieh dir deine Socken über die Hände und lass sie dort für die nächsten zwei Runden.",
   "Erfinde einen neuen Handschlag mit der Person neben dir und zeig ihn der Gruppe.",
   "Versuche 30 Sekunden lang, drei zufällige kleine Gegenstände zu jonglieren.",
   "Stell dich in die Mitte des Raumes und mach drei verschiedene Posen, als wärst du auf einem Album-Cover.",
-  "Lass einen anderen Spieler eine Sprachnachricht von deinem Handy verschicken, in der nur nette Dinge gesagt werden.",
+  "Lass einen anderen Spieler eine Sprachnachricht von deinem Handy verschicken, in der natürlich nur nette Dinge gesagt werden.",
   "Kommentiere eine Minute lang alles, was die Person rechts von dir macht, als wärst du ein Sportkommentator.",
   "Imitiere möglichst gut einen Lehrer oder Chef, den du mal hattest (ohne Namen zu nennen).",
   "Schließe die Augen, lass dir einen Gegenstand in die Hand geben und errate, was es ist – nur durch Tasten.",
   "Tu 45 Sekunden lang so, als hättest du extrem langsames Internet und alles hängt.",
-  "Pfeife ein Lied, das die Gruppe aussucht, bis es jemand erkennt.",
-  "Lass die Person dir gegenüber ein Wort auf deine Stirn (oder einen Zettel) schreiben und behalte es drei Runden lang dort.",
-  "Lies eine zufällige SMS von deinem Handy übertrieben dramatisch vor.",
+  "Pfeife ein Lied, bis es jemand erkennt.",
+  "Lies eine zufällige Nachricht von deinem Handy übertrieben dramatisch vor.",
   "Tu so, als würdest du einen ernsten TED-Talk über etwas völlig Nutzloses halten.",
   "Steh 30 Sekunden lang wie eine Statue, während alle anderen versuchen, dich zum Lachen zu bringen.",
   "Sag jedem in diesem Raum ein ehrliches, nettes Kompliment.",
   "Tu eine Minute lang so, als wäre der Boden Lava, und verhältst dich entsprechend.",
-  "Lass jemanden deine Gesichtsmimik mit seinen Händen „steuern“, während du versuchst, eine kurze Geschichte zu erzählen.",
   "Such dir einen zufälligen Gegenstand im Raum und versuche, ihn der Gruppe wie in einer Teleshopping-Show zu verkaufen.",
-  "Erfinde einen kurzen Jingle über dieses Spiel und performe ihn für die Gruppe."
+  "Erfinde einen kurzen Jingle über dieses Spiel und performe ihn für die Gruppe.",
+  "Tu so als wärst du ein Zauberer und führst einen Zaubertrick vor – egal wie simpel.",
+  "Zeige der Gruppe deinen besten Tanzmove.",
+  "Zeige der Gurppe einen Lustigen Tanzmove.",
+  "Tu für einen Minute so, als wärst du ein Nachrichtensprecher, der die neuesten Nachrichten über dieses Spiel berichtet.",
+  "Nim für 30 Sekunden einen Yogapose ein, die du dir ausdenkst.",
+  "Tu so als wärst du der Fitness-Trainer der Gruppe und führ eine kurze Aufwärmübung an."
 ];
 
 
@@ -197,6 +199,11 @@ const QUOTES = [
 
     // Init
     document.getElementById('btn-copy').addEventListener('click', copyQuote);
+     document.getElementById('btn-new').addEventListener('click', () => {
+      renderRandomQuote();
+      setStatus('Neue Aufgabe geladen.');
+    });
+
     setTime();
     setInterval(setTime, 30_000);
     renderRandomQuote();
