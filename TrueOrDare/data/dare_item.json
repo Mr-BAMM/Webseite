@@ -1,63 +1,299 @@
 {
   "items": [
-    { "text": ["Sprich eine Minute lang mit einem falschen Akzent."] },
-    { "text": ["Lass die Gruppe einen peinlichen Song auswählen und singe 30 Sekunden davon."] },
-    { "text": ["Mach eine möglichst gute Imitation von einem anderen Mitspieler für eine Minute."] },
-    { "text": ["Schicke ein lustiges Selfie an die letzte Person, der du geschrieben hast, und zeig den Chat."] },
-    { "text": ["Lass einen anderen Spieler deine Haare anfassen und so umstylen, wie er oder sie will."] },
-    { "text": ["Erzähl von deinem Tag, als wärst du ein dramatischer Filmkommentator."] },
-    { "text": ["Mach 10 Liegestütze oder deinen besten Versuch."] },
-    { "text": ["Spiele eine Szene aus einem Film nach, bis jemand errät, welcher Film es ist."] },
-    { "text": ["Kommuniziere eine Minute lang nur mit Mimik und Gestik."] },
-    { "text": ["Lies die letzte Nachricht, die du verschickt hast, laut in deiner ernstesten Stimme vor."] },
-    { "text": ["Erlaube einem anderen Spieler, eine kleine Kritzelei auf deinen Arm zu malen."] },
-    { "text": ["Sprich nur in Fragen bis zu deinem nächsten Zug."] },
-    { "text": ["Zeige den Inhalt deiner Tasche."] },
-    { "text": ["Lauf einmal quer durch den Raum wie auf einem Catwalk bei einer Modenschau."] },
-    { "text": ["Versuche, innerhalb von 60 Sekunden alle in der Runde zum Lachen zu bringen."] },
-    { "text": ["Mache 3 fremnden Perosnen ein kompliment."] },
-    { "text": ["Imitiere eine berühmte Person so gut du kannst, bis jemand errät, wer es ist."] },
-    { "text": ["Setz dich eine Runde lang in den Mittelpunkt (in der Mitte oder wo auffällig)."] },
-    { "text": ["Zeige dein letztes Handyfoto der Gruppe."] },
-    { "text": ["Lackiere deine Nägel bunt."] },
-    { "text": ["Zverusche ein Spagat."] },
-    { "text": ["Umarme die Person, die du am meisten aus der Runde magst."] },
-    { "text": ["Tausche den Platz mit der Person, die am weitesten von dir weg ist, und mach ihr ein ehrliches Kompliment."] },
-    { "text": ["Handdrücken mit der Person rechts von dir."] },
-    { "text": ["Erlaube dem Spieler links von dir, ein oder mehrere Emoji an einen beliebigen Kontakt von deinem Handy zu schicken."] },
-    { "text": ["Beschreibe deine letzte Mahlzeit, als wäre sie ein Fünf-Sterne-Restaurantgericht."] },
-    { "text": ["Lass einen anderen Spieler ein Wort bestimmen, das du den restlichen Abend nicht sagen darfst. Jedes Mal, wenn du es doch sagst, musst du einen albernen Tanz machen."] },
-    { "text": ["Trage Lippenstift die jemand aus der Runde aussucht auf."] },
-    { "text": ["Lass dir etwas auf die Stirn schreiben."] },
-    { "text": ["Stelle auf einen nervigen Klingelton um."] },
-    { "text": ["Zeichne deinen letzten Traum."] },
-    { "text": ["Flirte eine Person aus der Gruppe oder eine fremde Person an."] },
-    { "text": ["Versuche 30 Sekunden lang, drei zufällige kleine Gegenstände zu jonglieren. - (Bedenke: es wird keine Haftung für herunterfallende Gegenstände übernommen)"] },
-    { "text": ["Rede bis zu deinem nächsten Zug in Babystimme."] },
-    { "text": ["Massiere der Person links während ihrer Runde."] },
-    { "text": ["Kommentiere eine Minute lang alles, was die Person rechts von dir macht, als wärst du ein Sportkommentator."] },
-    { "text": ["Imitiere möglichst gut einen Lehrer oder Chef, den du mal hattest (ohne Namen zu nennen)."] },
-    { "text": ["Schließe die Augen, lass dir einen Gegenstand in die Hand geben und errate, was es ist nur durch Tasten."] },
-    { "text": ["Pfeife ein Lied, bis es jemand erkennt."] },
-    { "text": ["Lies die letzte längere Nachricht von deinem Handy vor."] },
-    { "text": ["Frage jemanden um seine Nummer."] },
-    { "text": ["Zeige den Ansatz deiner Unterhose."] },
-    { "text": ["Küsse den Fuss von jemanden."] },
-    { "text": ["Sag jedem in diesem Raum ein ehrliches, nettes Kompliment."] },
-    { "text": ["Tanze deinen Namen."] },
-    { "text": ["Benutze 30 Minuten nur deine schwache Hand (rechts/linkshänder)."] },
-    { "text": ["Like einen Beitrag deines Crushes."] },
-    { "text": ["Squate bis zu deinem nächsten Zug."] },
-    { "text": ["Zeige der Gruppe deinen besten Tanzmove."] },
-    { "text": ["Riech an dem Fuss von einen Mitspieler."] },
-    { "text": ["Schreie laut für 5 Sekunden."] },
-    { "text": ["Sage zu 3 fremden Menschen Hallo draußen."] },
-    { "text": ["Tu so als wärst du der Fitness-Trainer der Gruppe und führ eine kurze Aufwärmübung an."] },
-    { "text": ["Verhalte dich wie dein schlimmster fein für eine Runde."] },
-    { "text": ["Ändere dein Bildschirmbild in etwas ein Gegensstand des Wunsches der Gruppe für einen Tag."] },
-    { "text": ["Du spielst 3 Runden Dare, drücke auf nächstes."] },
-    { "text": ["Balanciere ein Gegenstand auf deinem Kopf eine Runde lang."] },
-    { "text": ["Breakdance vor der Gruppe."] },
-    { "text": ["Jodele vor der Gruppe."] }
+    {
+      "text": [
+        "Sprich eine Minute lang mit einem falschen Akzent."
+      ]
+    },
+    {
+      "text": [
+        "Lass die Gruppe einen peinlichen Song auswählen und singe 30 Sekunden davon."
+      ]
+    },
+    {
+      "text": [
+        "Imitiere einen anderen Mitspieler so gut wie möglich für eine Minute."
+      ]
+    },
+    {
+      "text": [
+        "Schicke ein lustiges Selfie an die letzte Person, der du geschrieben hast, und zeige den Chat."
+      ]
+    },
+    {
+      "text": [
+        "Lass einen anderen Spieler deine Haare anfassen und so umstylen, wie er oder sie möchte."
+      ]
+    },
+    {
+      "text": [
+        "Erzähl von deinem Tag, als wärst du ein dramatischer Filmkommentator."
+      ]
+    },
+    {
+      "text": [
+        "Mach 10 Liegestütze oder deinen besten Versuch."
+      ]
+    },
+    {
+      "text": [
+        "Spiele eine Szene aus einem Film nach, bis jemand errät, welcher Film es ist."
+      ]
+    },
+    {
+      "text": [
+        "Kommuniziere eine Minute lang nur mit Mimik und Gestik."
+      ]
+    },
+    {
+      "text": [
+        "Lies die letzte Nachricht, die du verschickt hast, laut in deiner ernstesten Stimme vor."
+      ]
+    },
+    {
+      "text": [
+        "Erlaube einem anderen Spieler, eine kleine Kritzelei auf deinen Arm zu malen."
+      ]
+    },
+    {
+      "text": [
+        "Sprich nur in Fragen bis zu deinem nächsten Zug."
+      ]
+    },
+    {
+      "text": [
+        "Zeige den Inhalt deiner Tasche."
+      ]
+    },
+    {
+      "text": [
+        "Lauf einmal quer durch den Raum wie auf einem Catwalk bei einer Modenschau."
+      ]
+    },
+    {
+      "text": [
+        "Versuche, innerhalb von 60 Sekunden alle in der Runde zum Lachen zu bringen."
+      ]
+    },
+    {
+      "text": [
+        "Mache drei fremden Personen ein Kompliment."
+      ]
+    },
+    {
+      "text": [
+        "Imitiere eine berühmte Person so gut du kannst, bis jemand errät, wer es ist."
+      ]
+    },
+    {
+      "text": [
+        "Setz dich eine Runde lang in den Mittelpunkt der Gruppe."
+      ]
+    },
+    {
+      "text": [
+        "Zeige der Gruppe dein letztes Handyfoto."
+      ]
+    },
+    {
+      "text": [
+        "Lackiere deine Nägel bunt."
+      ]
+    },
+    {
+      "text": [
+        "Versuche einen Spagat."
+      ]
+    },
+    {
+      "text": [
+        "Umarme die Person, die du am meisten aus der Runde magst."
+      ]
+    },
+    {
+      "text": [
+        "Tausche den Platz mit der Person, die am weitesten von dir entfernt ist, und mach ihr ein ehrliches Kompliment."
+      ]
+    },
+    {
+      "text": [
+        "Mach Armdrücken mit der Person rechts von dir."
+      ]
+    },
+    {
+      "text": [
+        "Erlaube dem Spieler links von dir, ein oder mehrere Emojis an einen beliebigen Kontakt von deinem Handy zu schicken."
+      ]
+    },
+    {
+      "text": [
+        "Beschreibe deine letzte Mahlzeit, als wäre sie ein Fünf-Sterne-Restaurantgericht."
+      ]
+    },
+    {
+      "text": [
+        "Lass einen anderen Spieler ein Wort bestimmen, das du den restlichen Abend nicht sagen darfst. Jedes Mal, wenn du es doch sagst, musst du einen albernen Tanz machen."
+      ]
+    },
+    {
+      "text": [
+        "Trage Lippenstift auf, den jemand aus der Runde aussucht."
+      ]
+    },
+    {
+      "text": [
+        "Lass dir etwas auf die Stirn schreiben."
+      ]
+    },
+    {
+      "text": [
+        "Stelle einen nervigen Klingelton ein."
+      ]
+    },
+    {
+      "text": [
+        "Zeichne deinen letzten Traum."
+      ]
+    },
+    {
+      "text": [
+        "Flirte eine Person aus der Gruppe oder eine fremde Person an."
+      ]
+    },
+    {
+      "text": [
+        "Versuche 30 Sekunden lang, drei zufällige kleine Gegenstände zu jonglieren. Hinweis: Für herunterfallende Gegenstände wird keine Haftung übernommen."
+      ]
+    },
+    {
+      "text": [
+        "Sprich bis zu deinem nächsten Zug mit Babystimme."
+      ]
+    },
+    {
+      "text": [
+        "Massiere die Person links von dir während ihrer Runde."
+      ]
+    },
+    {
+      "text": [
+        "Kommentiere eine Minute lang alles, was die Person rechts von dir macht, als wärst du ein Sportkommentator."
+      ]
+    },
+    {
+      "text": [
+        "Imitiere möglichst gut einen Lehrer oder Chef, den du mal hattest, ohne ihn beim Namen zu nennen."
+      ]
+    },
+    {
+      "text": [
+        "Schließe die Augen, lass dir einen Gegenstand in die Hand geben und errate nur durch Tasten, was es ist."
+      ]
+    },
+    {
+      "text": [
+        "Pfeife ein Lied, bis es jemand erkennt."
+      ]
+    },
+    {
+      "text": [
+        "Lies die letzte längere Nachricht von deinem Handy vor."
+      ]
+    },
+    {
+      "text": [
+        "Frage jemanden nach seiner Nummer."
+      ]
+    },
+    {
+      "text": [
+        "Zeige den Bund deiner Unterhose."
+      ]
+    },
+    {
+      "text": [
+        "Küsse den Fuß von jemandem."
+      ]
+    },
+    {
+      "text": [
+        "Sag jedem in diesem Raum ein ehrliches, nettes Kompliment."
+      ]
+    },
+    {
+      "text": [
+        "Tanze deinen Namen."
+      ]
+    },
+    {
+      "text": [
+        "Benutze 30 Minuten lang nur deine schwächere Hand."
+      ]
+    },
+    {
+      "text": [
+        "Like einen Beitrag deines Crushes."
+      ]
+    },
+    {
+      "text": [
+        "Mach Kniebeugen bis zu deinem nächsten Zug."
+      ]
+    },
+    {
+      "text": [
+        "Zeige der Gruppe deinen besten Tanzmove."
+      ]
+    },
+    {
+      "text": [
+        "Riech am Fuß eines Mitspielers."
+      ]
+    },
+    {
+      "text": [
+        "Schrei 5 Sekunden lang laut."
+      ]
+    },
+    {
+      "text": [
+        "Sage draußen drei fremden Menschen Hallo."
+      ]
+    },
+    {
+      "text": [
+        "Tu so, als wärst du der Fitnesstrainer der Gruppe, und führe eine kurze Aufwärmübung an."
+      ]
+    },
+    {
+      "text": [
+        "Verhalte dich eine Runde lang wie dein schlimmster Feind."
+      ]
+    },
+    {
+      "text": [
+        "Ändere dein Hintergrundbild für einen Tag in einen Gegenstand nach Wunsch der Gruppe."
+      ]
+    },
+    {
+      "text": [
+        "Du spielst drei Runden Dare. Drücke auf „Nächstes“."
+      ]
+    },
+    {
+      "text": [
+        "Balanciere einen Gegenstand eine Runde lang auf deinem Kopf."
+      ]
+    },
+    {
+      "text": [
+        "Mache Breakdance vor der Gruppe."
+      ]
+    },
+    {
+      "text": [
+        "Jodele vor der Gruppe."
+      ]
+    }
   ]
 }
