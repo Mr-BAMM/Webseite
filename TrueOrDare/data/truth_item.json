@@ -1,55 +1,294 @@
 {
   "items": [
-    { "text": ["What was your first impression of me?"] },
-    { "text": ["What is the most embarrassing thing that has ever happened to you in public?"] },
-    { "text": ["What is a secret you have never told anyone here?"] },
-    { "text": ["Who was your biggest crush in the last 5 years?"] },
-    { "text": ["What is something you pretend to like but actually don’t?"] },
-    { "text": ["What is your most irrational fear?"] },
-    { "text": ["What was your worst date ever and why?"] },
-    { "text": ["What is the biggest lie you have told without getting caught?"] },
-    { "text": ["If you could change one thing about your past, what would it be?"] },
-    { "text": ["What is something you are proud of but rarely talk about?"] },
-    { "text": ["What’s the weirdest thing you’ve done when you thought nobody was watching?"] },
-    { "text": ["Have you ever had a crush on a friend’s partner or ex?"] },
-    { "text": ["What’s your most controversial opinion that you actually stand by?"] },
-    { "text": ["What’s the most childish thing you still enjoy?"] },
-    { "text": ["What’s the biggest risk you’ve ever taken?"] },
-    { "text": ["What’s a habit you really want to break but haven’t?"] },
-    { "text": ["What’s the worst fashion phase you’ve ever gone through?"] },
-    { "text": ["When was the last time you cried, and why?"] },
-    { "text": ["What’s something you’re insecure about that people probably wouldn’t expect?"] },
-    { "text": ["What’s the most trouble you got into at school or university?"] },
-    { "text": ["What’s the weirdest thing you’ve ever eaten on purpose?"] },
-    { "text": ["What’s the last thing you searched on your phone browser?"] },
-    { "text": ["Who in this group would you call first in an emergency and why?"] },
-    { "text": ["What’s a goal you secretly gave up on?"] },
-    { "text": ["What is the laziest thing you’ve done recently?"] },
-    { "text": ["What’s a compliment you received that you’ll never forget?"] },
-    { "text": ["What is something you are glad your parents don’t know about you?"] },
-    { "text": ["What’s the most awkward situation you’ve had with someone you liked?"] },
-    { "text": ["What’s something you did once and immediately regretted?"] },
-    { "text": ["If you had to choose one person here to be stuck on an island with, who would it be?"] },
-    { "text": ["What’s your guiltiest pleasure when you’re alone?"] },
-    { "text": ["What’s the worst text you ever sent to the wrong person?"] },
-    { "text": ["Have you ever lied to get out of meeting someone here?"] },
-    { "text": ["What’s a friendship you wish you had handled differently?"] },
-    { "text": ["What’s something you’ve done just because of peer pressure?"] },
-    { "text": ["What is the most embarrassing thing in your room right now?"] },
-    { "text": ["What’s one thing you’re afraid people in this room might secretly think about you?"] },
-    { "text": ["What’s the most impulsive purchase you’ve ever made?"] },
-    { "text": ["Who here do you think knows you the best, and why?"] },
-    { "text": ["What’s a lie you told on social media to make yourself look better?"] },
-    { "text": ["What’s the most jealous you’ve ever been?"] },
-    { "text": ["What’s something you wish you were better at but never practice?"] },
-    { "text": ["What’s the weirdest dream you can remember in detail?"] },
-    { "text": ["If you could erase one memory, which one would it be?"] },
-    { "text": ["What is the pettiest reason you ever disliked someone?"] },
-    { "text": ["What’s something you have done that you would never want your boss or teacher to know about?"] },
-    { "text": ["What’s the longest you’ve gone without showering, and why?"] },
-    { "text": ["What’s a small decision that surprisingly changed a lot in your life?"] },
-    { "text": ["If you had to admit one big mistake from the last year, what would it be?"] },
-    { "text": ["What’s the most nervous you’ve ever been before meeting someone?"] },
-    { "text": ["What’s something you really want from life but are scared to say out loud?"] }
+    {
+      "text": [
+        "Was war dein erster Eindruck von der Person rechts von dir?"
+      ]
+    },
+    {
+      "text": [
+        "Was ist das Peinlichste, das dir jemals in der Öffentlichkeit passiert ist?"
+      ]
+    },
+    {
+      "text": [
+        "Welches Geheimnis hast du noch niemandem hier im Raum erzählt?"
+      ]
+    },
+    {
+      "text": [
+        "Wer war dein größter Crush in den letzten 5 Jahren?"
+      ]
+    },
+    {
+      "text": [
+        "Wobei tust du so, als würdest du es mögen, magst es aber eigentlich nicht?"
+      ]
+    },
+    {
+      "text": [
+        "Was ist die irrationalste Angst, die du hast?"
+      ]
+    },
+    {
+      "text": [
+        "Was war dein schlimmstes Date und warum?"
+      ]
+    },
+    {
+      "text": [
+        "Was ist die größte Lüge, die du erzählt hast, ohne erwischt zu werden?"
+      ]
+    },
+    {
+      "text": [
+        "Wenn du eine Sache aus deiner Vergangenheit ändern könntest, welche wäre das?"
+      ]
+    },
+    {
+      "text": [
+        "Worauf bist du stolz, worüber du aber selten sprichst?"
+      ]
+    },
+    {
+      "text": [
+        "Was ist das Seltsamste, das du getan hast, als du dachtest, dich beobachtet niemand?"
+      ]
+    },
+    {
+      "text": [
+        "Warst du schon mal in den Partner oder Ex eines Freundes oder einer Freundin verknallt?"
+      ]
+    },
+    {
+      "text": [
+        "Welche deiner Meinungen, an der du trotzdem festhältst, ist am kontroversesten?"
+      ]
+    },
+    {
+      "text": [
+        "Was ist das Kindischste, das du immer noch gerne machst?"
+      ]
+    },
+    {
+      "text": [
+        "Was war das größte Risiko, das du je eingegangen bist?"
+      ]
+    },
+    {
+      "text": [
+        "Welche Angewohnheit würdest du wirklich gerne loswerden, hast es bisher aber noch nicht geschafft?"
+      ]
+    },
+    {
+      "text": [
+        "Welche Angewohnheit würdest du wirklich gerne aufbauen und warum?"
+      ]
+    },
+    {
+      "text": [
+        "Wann hast du das letzte Mal gelogen, warum und worüber?"
+      ]
+    },
+    {
+      "text": [
+        "Wann hast du das letzte Mal geweint und warum?"
+      ]
+    },
+    {
+      "text": [
+        "Was ist etwas, worüber du unsicher bist, was man dir aber wahrscheinlich nicht ansieht?"
+      ]
+    },
+    {
+      "text": [
+        "Was war das Verrückteste, das dir jemals in der Schule passiert ist?"
+      ]
+    },
+    {
+      "text": [
+        "Was ist das Merkwürdigste, das du jemals mit Absicht gegessen hast?"
+      ]
+    },
+    {
+      "text": [
+        "Was war das Letzte, das du in deinem Handy-Browser gesucht hast?"
+      ]
+    },
+    {
+      "text": [
+        "Was war deine schlimmste kriminelle Tat?"
+      ]
+    },
+    {
+      "text": [
+        "Welches Ziel hast du heimlich aufgegeben? Und was müsste sich ändern, damit du es wieder verfolgst?"
+      ]
+    },
+    {
+      "text": [
+        "Auf welche Charaktereigenschaft bist du am meisten stolz und auf welche am wenigsten?"
+      ]
+    },
+    {
+      "text": [
+        "Welches Kompliment hast du bekommen, das du nie vergessen wirst?"
+      ]
+    },
+    {
+      "text": [
+        "Worüber bist du froh, dass deine Eltern es nicht über dich wissen?"
+      ]
+    },
+    {
+      "text": [
+        "Was war die unangenehmste Situation mit jemandem, in den du verknallt warst?"
+      ]
+    },
+    {
+      "text": [
+        "Was hast du einmal gemacht und sofort bereut?"
+      ]
+    },
+    {
+      "text": [
+        "Wenn du dir eine Person hier aussuchen müsstest, mit der du auf einer einsamen Insel gestrandet bist, wer wäre es und warum?"
+      ]
+    },
+    {
+      "text": [
+        "Hast du schon mal jemanden in den sozialen Medien gestalkt? Erzähle etwas über die Person und was du herausgefunden hast."
+      ]
+    },
+    {
+      "text": [
+        "Was war die schlimmste Nachricht, die du jemals an die falsche Person geschickt hast?"
+      ]
+    },
+    {
+      "text": [
+        "Hast du je gelogen, nur um ein Treffen mit jemandem hier zu vermeiden?"
+      ]
+    },
+    {
+      "text": [
+        "Welche Freundschaft hättest du rückblickend gerne anders gehandhabt?"
+      ]
+    },
+    {
+      "text": [
+        "Was hast du bisher immer nur aus Gruppenzwang gemacht?"
+      ]
+    },
+    {
+      "text": [
+        "Was ist im Moment das peinlichste Objekt in deinem Zimmer?"
+      ]
+    },
+    {
+      "text": [
+        "Sage, was dich derzeit bedrückt und/oder was du momentan in deinem Leben ändern möchtest."
+      ]
+    },
+    {
+      "text": [
+        "Was war dein impulsivster Kauf überhaupt?"
+      ]
+    },
+    {
+      "text": [
+        "Wer hier kennt dich deiner Meinung nach am besten und warum?"
+      ]
+    },
+    {
+      "text": [
+        "Wann warst du in deinem Leben am eifersüchtigsten?"
+      ]
+    },
+    {
+      "text": [
+        "Was würdest du gerne besser können, übst es aber nie?"
+      ]
+    },
+    {
+      "text": [
+        "Was ist der seltsamste Traum, an den du dich noch im Detail erinnerst?"
+      ]
+    },
+    {
+      "text": [
+        "Was wünschst du dir, das für andere zunächst seltsam klingt, und warum?"
+      ]
+    },
+    {
+      "text": [
+        "Wenn du eine Erinnerung aus deinem Kopf löschen könntest, welche wäre das?"
+      ]
+    },
+    {
+      "text": [
+        "Was ist der kleinlichste Grund, aus dem du jemanden mal nicht mochtest?"
+      ]
+    },
+    {
+      "text": [
+        "Was hast du getan, von dem dein Chef oder Lehrer auf keinen Fall erfahren sollte?"
+      ]
+    },
+    {
+      "text": [
+        "Wie lange bist du schon mal ohne Duschen ausgekommen und warum?"
+      ]
+    },
+    {
+      "text": [
+        "Welche kleine Entscheidung hat dein Leben überraschend stark verändert?"
+      ]
+    },
+    {
+      "text": [
+        "Wenn du einen großen Fehler aus dem letzten Jahr zugeben müsstest, welcher wäre das?"
+      ]
+    },
+    {
+      "text": [
+        "Was ist etwas, das du dir vom Leben wirklich wünschst, dich aber kaum traust, laut auszusprechen?"
+      ]
+    },
+    {
+      "text": [
+        "Wenn du Psychologe wärst, wie würdest du dich selbst diagnostizieren?"
+      ]
+    },
+    {
+      "text": [
+        "Hattest du schon mal unanständige Gedanken über jemanden hier im Raum?"
+      ]
+    },
+    {
+      "text": [
+        "Was ist das Dümmste, das du je aus Liebe oder wegen eines Crushes getan hast?"
+      ]
+    },
+    {
+      "text": [
+        "Was ist das Erlebnis, das dein Leben am meisten geprägt hat?"
+      ]
+    },
+    {
+      "text": [
+        "Hast du einen Crush auf jemanden, mit dem du aktuell nicht zusammen bist?"
+      ]
+    },
+    {
+      "text": [
+        "Was war die heißeste Fantasie, die du in letzter Zeit hattest? Und mit wem?"
+      ]
+    },
+    {
+      "text": [
+        "Wenn du deinem früheren Ich einen Rat geben könntest, was würdest du ihm sagen?"
+      ]
+    }
   ]
-} 
+}
